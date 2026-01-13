@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lato:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* RATHNA TEX - Premium Silk-Inspired Design System */
+
+@layer base {
+  :root {
+    /* Silk-Inspired Color Palette */
+    --background: 40 30% 97%;
+    --foreground: 25 25% 12%;
+
+    --card: 40 25% 99%;
+    --card-foreground: 25 25% 12%;
+
+    --popover: 40 25% 99%;
+    --popover-foreground: 25 25% 12%;
+
+    /* Silk Sage Green - Primary */
+    --primary: 140 25% 35%;
+    --primary-foreground: 40 30% 97%;
+
+    /* Muted Gold - Secondary */
+    --secondary: 42 45% 75%;
+    --secondary-foreground: 25 25% 12%;
+
+    /* Warm Ivory - Muted */
+    --muted: 38 30% 92%;
+    --muted-foreground: 25 15% 45%;
+
+    /* Zari Gold - Accent */
+    --accent: 38 55% 55%;
+    --accent-foreground: 25 25% 12%;
+
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 40 30% 97%;
+
+    --border: 38 25% 85%;
+    --input: 38 25% 88%;
+    --ring: 140 25% 35%;
+
+    --radius: 0.5rem;
+
+    /* Custom Silk Colors */
+    --silk-cream: 40 35% 95%;
+    --silk-ivory: 42 40% 98%;
+    --silk-green: 140 25% 35%;
+    --silk-green-light: 140 20% 85%;
+    --silk-gold: 38 55% 55%;
+    --silk-gold-light: 42 45% 80%;
+    --silk-brown: 25 35% 30%;
+    --silk-brown-light: 25 25% 55%;
+    --zari-shimmer: 45 60% 65%;
+
+    /* Gradients */
+    --gradient-silk: linear-gradient(135deg, hsl(40 35% 95%) 0%, hsl(42 40% 98%) 50%, hsl(38 30% 92%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(42 45% 75%) 0%, hsl(38 55% 55%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsla(40 35% 95% / 0.9) 0%, hsla(42 40% 98% / 0.95) 100%);
+
+    /* Shadows */
+    --shadow-silk: 0 4px 20px -4px hsla(25 25% 12% / 0.08);
+    --shadow-card: 0 8px 30px -8px hsla(25 25% 12% / 0.1);
+    --shadow-hover: 0 12px 40px -10px hsla(25 25% 12% / 0.15);
+
+    --sidebar-background: 40 30% 97%;
+    --sidebar-foreground: 25 25% 12%;
+    --sidebar-primary: 140 25% 35%;
+    --sidebar-primary-foreground: 40 30% 97%;
+    --sidebar-accent: 38 30% 92%;
+    --sidebar-accent-foreground: 25 25% 12%;
+    --sidebar-border: 38 25% 85%;
+    --sidebar-ring: 140 25% 35%;
+  }
+
+  .dark {
+    --background: 25 20% 8%;
+    --foreground: 40 25% 95%;
+
+    --card: 25 18% 12%;
+    --card-foreground: 40 25% 95%;
+
+    --popover: 25 18% 12%;
+    --popover-foreground: 40 25% 95%;
+
+    --primary: 140 20% 50%;
+    --primary-foreground: 25 20% 8%;
+
+    --secondary: 42 30% 25%;
+    --secondary-foreground: 40 25% 95%;
+
+    --muted: 25 15% 18%;
+    --muted-foreground: 38 20% 65%;
+
+    --accent: 38 45% 45%;
+    --accent-foreground: 40 25% 95%;
+
+    --destructive: 0 55% 45%;
+    --destructive-foreground: 40 25% 95%;
+
+    --border: 25 15% 20%;
+    --input: 25 15% 22%;
+    --ring: 140 20% 50%;
+
+    --silk-cream: 25 15% 15%;
+    --silk-ivory: 25 12% 18%;
+    --silk-green: 140 20% 50%;
+    --silk-green-light: 140 15% 25%;
+    --silk-gold: 38 45% 45%;
+    --silk-gold-light: 42 30% 30%;
+    --silk-brown: 25 20% 60%;
+    --silk-brown-light: 25 15% 40%;
+    --zari-shimmer: 45 50% 55%;
+
+    --sidebar-background: 25 20% 8%;
+    --sidebar-foreground: 40 25% 95%;
+    --sidebar-primary: 140 20% 50%;
+    --sidebar-primary-foreground: 25 20% 8%;
+    --sidebar-accent: 25 15% 18%;
+    --sidebar-accent-foreground: 40 25% 95%;
+    --sidebar-border: 25 15% 20%;
+    --sidebar-ring: 140 20% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  /* Silk Shimmer Animation */
+  @keyframes silkSheen {
+    0% {
+      transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    }
+
+    100% {
+      transform: translateX(100%) translateY(100%) rotate(45deg);
+    }
+  }
+
+  body {
+    @apply text-foreground font-body antialiased;
+    background-image: url('/silk_bg.png');
+    background-repeat: repeat;
+    background-size: 500px;
+    background-attachment: fixed;
+    background-color: #fcfbf7;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* Shimmer Overlay */
+  body::after {
+    content: "";
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(to bottom right,
+        transparent 30%,
+        rgba(255, 255, 255, 0.6) 45%,
+        rgba(255, 215, 0, 0.4) 50%,
+        rgba(255, 255, 255, 0.6) 55%,
+        transparent 70%);
+    z-index: 9999;
+    pointer-events: none;
+    animation: silkSheen 8s infinite linear;
+    mix-blend-mode: overlay;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading;
+  }
+}
+
+@layer components {
+  .silk-bg {
+    background: var(--gradient-silk);
+  }
+
+  .silk-texture {
+    position: relative;
+  }
+
+  .silk-texture::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('/silk-texture-pattern.jpg') center/cover;
+    opacity: 0.03;
+    pointer-events: none;
+  }
+
+  .zari-border {
+    border: 1px solid hsl(var(--silk-gold) / 0.3);
+    background: linear-gradient(135deg, hsl(var(--silk-gold) / 0.05) 0%, transparent 100%);
+  }
+
+  .gold-shimmer {
+    background: linear-gradient(90deg,
+        hsl(var(--silk-gold)) 0%,
+        hsl(var(--zari-shimmer)) 50%,
+        hsl(var(--silk-gold)) 100%);
+    background-size: 200% 100%;
+    animation: shimmer 3s ease-in-out infinite;
+  }
+
+  @keyframes shimmer {
+
+    0%,
+    100% {
+      background-position: 200% 0;
+    }
+
+    50% {
+      background-position: -200% 0;
+    }
+  }
+
+  .text-gradient-gold {
+    background: linear-gradient(135deg, hsl(var(--silk-brown)) 0%, hsl(var(--silk-gold)) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+@layer utilities {
+  .animate-fade-up {
+    animation: fadeUp 0.6s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+}
